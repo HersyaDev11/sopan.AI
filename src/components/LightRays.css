@@ -1,0 +1,91 @@
+.light-rays-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #020617; /* Slate 950 */
+  overflow: hidden;
+  z-index: 0;
+}
+
+.ray {
+  position: absolute;
+  top: -20vh; /* Start above the screen */
+  height: 150vh;
+  transform-origin: top center;
+  filter: blur(30px);
+  mix-blend-mode: screen;
+  animation: ray-sweep infinite ease-in-out alternate;
+}
+
+/* White/Blue Ray */
+.ray-1 {
+  left: 10%;
+  width: 15vw;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.15), transparent);
+  animation-duration: 22s;
+  animation-delay: 0s;
+}
+
+/* Blue Ray */
+.ray-2 {
+  left: 35%;
+  width: 25vw;
+  background: linear-gradient(to bottom, rgba(59, 130, 246, 0.25), transparent);
+  animation-duration: 28s;
+  animation-delay: -5s;
+}
+
+/* Purple Ray */
+.ray-3 {
+  left: 60%;
+  width: 20vw;
+  background: linear-gradient(to bottom, rgba(139, 92, 246, 0.2), transparent);
+  animation-duration: 25s;
+  animation-delay: -12s;
+}
+
+/* Cyan Ray */
+.ray-4 {
+  left: 80%;
+  width: 18vw;
+  background: linear-gradient(to bottom, rgba(14, 165, 233, 0.2), transparent);
+  animation-duration: 32s;
+  animation-delay: -7s;
+}
+
+/* Center Core Ray */
+.ray-5 {
+  left: 50%;
+  width: 30vw;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), transparent);
+  animation-duration: 20s;
+  animation-delay: -3s;
+}
+
+@keyframes ray-sweep {
+  0% {
+    transform: rotate(-25deg) scaleX(0.8);
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: rotate(25deg) scaleX(1.2);
+    opacity: 0.3;
+  }
+}
+
+/* Adding a subtle glowing orb at the top center to act as the light source */
+.light-source {
+  position: absolute;
+  top: -10vh;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60vw;
+  height: 30vh;
+  background: radial-gradient(ellipse, rgba(59, 130, 246, 0.3) 0%, transparent 70%);
+  filter: blur(50px);
+}

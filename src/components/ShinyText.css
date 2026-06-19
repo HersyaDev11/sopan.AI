@@ -1,0 +1,29 @@
+@keyframes shiny-text-shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.shiny-text {
+  display: inline-block;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 30%,
+    rgba(255, 255, 255, 0.6) 50%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  background-size: var(--shimmer-width, 100px) 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: inherit;
+  -webkit-text-fill-color: inherit;
+  animation: shiny-text-shimmer var(--shiny-speed, 3s) linear infinite;
+  position: relative;
+}
+
+.shiny-text--disabled {
+  animation: none;
+}
